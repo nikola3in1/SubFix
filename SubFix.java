@@ -4,7 +4,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
+<<<<<<< HEAD
+=======
 import java.io.FileWriter;
+>>>>>>> 074e696d90dc785f2cd236d48fb059db83e74135
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
@@ -22,6 +25,28 @@ public class SubFix {
         String fileName = "";
         String fix = "";
 
+<<<<<<< HEAD
+        if (args.length == 0) {
+            System.out.println("Ewww! Add a filename as an argument... or try --help");
+        } else if (args.length >= 1) {
+            
+            //Formating shell arguments
+            StringBuilder str = new StringBuilder();
+            for (String s : args) {
+                str.append(s + " ");
+            }
+            String[] realArgs = str.toString().split(".srt");
+
+            if (str.toString().contains("--help")) {
+                System.out.println(help());
+            } else if (realArgs.length - 1 == 1) {
+                fileName = realArgs[0] + ".srt";
+                fix = realArgs[0] + "FIX.srt";
+            } else if (realArgs.length - 1 == 2) {
+                fileName = realArgs[0] + ".srt";
+                fix = realArgs[1] + ".srt";
+            }
+=======
         //Menu
         if (args.length == 0) {
             System.out.println("Ewww! Add a filename as an argument... or try --help");
@@ -44,6 +69,7 @@ public class SubFix {
             fix = args[1];
         } else {
             System.out.println("To many arguments. Try --help.");
+>>>>>>> 074e696d90dc785f2cd236d48fb059db83e74135
         }
 
         if (!fileName.isEmpty()) {
@@ -72,6 +98,28 @@ public class SubFix {
             System.out.println("Fixed to ---> /" + newFileName);
 
         } catch (FileNotFoundException ex) {
+<<<<<<< HEAD
+            Logger.getLogger(SubFix.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("File " + fileName + " was not found");
+        } catch (IOException ex) {
+            Logger.getLogger(SubFix.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private static String help() {
+        return "SubFix is a script made in purpose of fixing encoding problems in subtitles.\n"
+                + "Syntax:\n"
+                + "java SubFix [fileName/path] [fixedFileName/path]  --------> fixses file with \'fileName\' name and saves it to \'fixedFileName\' file\n"
+                + "java SubFix [fileName/path]                       --------> fixses file with \'fileName\' name and saves it to \'fileName\'+FIX file\n"
+                + "Example usages:\n"
+                + "     java SubFix titanik.720.srt\n"
+                + "     java SubFix titanik.720.srt titanikbestmovieever.sub.srt\n"
+                + "Version : 1.0\n"
+                + "Build date :22.11.2018 - 04:19\n"
+                + "Made by: nikola3in1";
+    }
+
+=======
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("File " + fileName + " was not found");
         } catch (IOException ex) {
@@ -79,6 +127,7 @@ public class SubFix {
         }
     }
 
+>>>>>>> 074e696d90dc785f2cd236d48fb059db83e74135
     private static String graphic() {
         return "Welcome to \n"
                 + "\n"
@@ -96,7 +145,10 @@ public class SubFix {
 
     private String swap(String line) {
         String fixedLine = new String(line);
+<<<<<<< HEAD
+=======
 //        test
+>>>>>>> 074e696d90dc785f2cd236d48fb059db83e74135
         if (!line.isEmpty()) {
             for (Character c : this.swaps.keySet()) {
                 if (fixedLine.contains(c + "")) {
